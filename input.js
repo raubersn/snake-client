@@ -1,3 +1,10 @@
+const { EXIT_KEY,
+        messages,
+        UP_ARROW,
+        DOWN_ARROW,
+        LEFT_ARROW,
+        RIGHT_ARROW } = require("./constants");
+
 let connection;
 
 // setup interface to handle user input from stdin
@@ -16,61 +23,35 @@ const setupInput = (conn) => {
 
 //Callback function to handle user input events
 const handleUserInput = function (key) {
-  switch(key) {
-    // If the user wishes to quit (CTRL+C), terminate game execution  
-    case `\u0003`:
-      console.log("Your wish is my command (QUITTER!)");
-      process.exit();
-    // Send the UP command to the server
-    case `\u001b[A`: // up ARROW
-    case "W":
-    case "w":
-      connection.write("Move: up");
-      break;
-    // Send the DOWN command to the server
-    case `\u001b[B`: //DOWN arrow
-    case "S":
-    case "s":
-      connection.write("Move: down");
-      break;
-    // Send the RIGHT command to the server
-    case `\u001b[C`: //RIGHT arrow
-    case "D":
-    case "d":
-      connection.write("Move: right");
-      break;
-    // Send the LEFT command to the server
-    case `\u001b[D`: //LEFT arrow
-    case "A": 
-    case "a":
-      connection.write("Move: left");
-      break;
-    // Possible 'emotes'
-    case "O":
-    case "o":
-      connection.write("Say: Ouch!");
-      break;
-    case "H":
-    case "h":
-      connection.write("Say: Hurray!");
-      break;
-    case "K":
-    case "k":
-      connection.write("Say: One less sneak...");
-      break;
-    case "L":
-    case "l":
-      connection.write("Say: LOL!!");
-      break;
-    case "G":
-    case "g":
-      connection.write("Say: Good game");
-      break;
-    case "M":
-    case "m":
-      connection.write("Say: Grrrrrrr..!");
-      break;
+  // If the user wishes to quit (CTRL+C), terminate game execution  
+  if (key === EXIT_KEY) {
+    console.log(messages.USER_QUIT);
+    process.exit();
   }
+
+  //if the key was set in the constant object, sends a message to the server
+  if (messages[key]) {
+    connection.write(messages[key]);
+  } else { //Kept for compatibility with the arrow keys before creating the constant module
+    switch(key) {
+     // Send the UP command to the server
+      case UP_ARROW:
+        connection.write(messages.W);
+        break;
+      // Send the DOWN command to the server
+      case DOWN_ARROW:
+        connection.write(messages.S);
+        break;
+      // Send the LEFT command to the server
+      case LEFT_ARROW:
+        connection.write(messages.A);
+        break;
+      // Send the RIGHT command to the server
+      case RIGHT_ARROW:
+        connection.write(messages.D);
+        break;      
+    }
+  }  
 };
 
 //Exporting as an object to be used in other modules
