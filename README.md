@@ -8,8 +8,7 @@ Before you can run this client, you will need to be running the server side whic
 
 ## Final Product
 
-!["screenshot description"](#)
-!["screenshot description"](#)
+!["The Snake game"](https://raw.githubusercontent.com/taniarascia/snek/master/snek.gif)
 
 ## Server Ehancements
 A streched version of the server is available [here](https://github.com/raubersn/snek-multiplayer). It allows broadcasting messages to the players on the following events:
@@ -26,17 +25,17 @@ A streched version of the server is available [here](https://github.com/raubersn
 ### Commands
 
 Use the following keys to move the snake:
-* Up: W / &uarr; arrow
-* Down: S / &darr; arrow
-* Left: A / &larr; arrow
-* Right: D / &rarr; arrow
+* Up: W / &uarr;
+* Down: S / &darr;
+* Left: A / &larr;
+* Right: D / &rarr;
 
 ### Emotes
 
 You can send message to the other player to express the following emotions (press the highlighted key):
-* **O**uch
-* **H**urray
-* Excitement for **k**illing a player
-* **L**aughting
-* **G**ood Game
-* You are **M**ad
+* <u>**O**</u>uch
+* <u>**H**</u>urray
+* Excitement for <u>**k**</u>illing a player
+* <u>**L**</u>aughting
+* <u>**G**</u>ood Game
+* You are <u>**M**</u>ad
