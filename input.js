@@ -1,9 +1,9 @@
 const { EXIT_KEY,
-        messages,
-        UP_ARROW,
-        DOWN_ARROW,
-        LEFT_ARROW,
-        RIGHT_ARROW } = require("./constants");
+  messages,
+  UP_ARROW,
+  DOWN_ARROW,
+  LEFT_ARROW,
+  RIGHT_ARROW } = require("./constants");
 
 let connection;
 
@@ -22,8 +22,8 @@ const setupInput = (conn) => {
 };
 
 //Callback function to handle user input events
-const handleUserInput = function (key) {
-  // If the user wishes to quit (CTRL+C), terminate game execution  
+const handleUserInput = function(key) {
+  // If the user wishes to quit (CTRL+C), terminate game execution
   if (key === EXIT_KEY) {
     console.log(messages.USER_QUIT);
     process.exit();
@@ -33,25 +33,25 @@ const handleUserInput = function (key) {
   if (messages[key]) {
     connection.write(messages[key]);
   } else { //Kept for compatibility with the arrow keys before creating the constant module
-    switch(key) {
-     // Send the UP command to the server
-      case UP_ARROW:
-        connection.write(messages.W);
-        break;
-      // Send the DOWN command to the server
-      case DOWN_ARROW:
-        connection.write(messages.S);
-        break;
-      // Send the LEFT command to the server
-      case LEFT_ARROW:
-        connection.write(messages.A);
-        break;
-      // Send the RIGHT command to the server
-      case RIGHT_ARROW:
-        connection.write(messages.D);
-        break;      
+    switch (key) {
+    // Send the UP command to the server
+    case UP_ARROW:
+      connection.write(messages.W);
+      break;
+    // Send the DOWN command to the server
+    case DOWN_ARROW:
+      connection.write(messages.S);
+      break;
+    // Send the LEFT command to the server
+    case LEFT_ARROW:
+      connection.write(messages.A);
+      break;
+    // Send the RIGHT command to the server
+    case RIGHT_ARROW:
+      connection.write(messages.D);
+      break;
     }
-  }  
+  }
 };
 
 //Exporting as an object to be used in other modules
