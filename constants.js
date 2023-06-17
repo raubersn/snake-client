@@ -27,7 +27,9 @@ const DOWN_ARROW = `\u001b[B`; //down arrow key
 const LEFT_ARROW = `\u001b[D`; //left arrow key
 const RIGHT_ARROW = `\u001b[C`; //right arrow key
 
+//Creating an object to encapsu;ate and expose all the messages
 const messages = {
+  CREATE_CONNECTION,
   CONNECT_SUCCESS,
   USER_QUIT,
   O: EMOTE_OUCH,
@@ -62,6 +64,5 @@ module.exports = {
   UP_ARROW,
   DOWN_ARROW,
   LEFT_ARROW,
-  RIGHT_ARROW,
-  CREATE_CONNECTION
+  RIGHT_ARROW
 };

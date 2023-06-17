@@ -3,11 +3,11 @@ const {connect} = require("./client.js");
 //Importing the keyboard's event hanlers
 const {setupInput} = require("./input.js");
 //Importing the message constants
-const { CREATE_CONNECTION } = require("./constants");
+const { messages } = require("./constants");
 
 
 //Creating the connection
-console.log(CREATE_CONNECTION);
+console.log(messages.CREATE_CONNECTION);
 const conn = connect();
 
 //Assigning the event handlers to send commands to the server
